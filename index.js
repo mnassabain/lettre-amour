@@ -1,14 +1,28 @@
-const http = require('http');
+const express = require('express');
+const app = express();
 
 const hostname = '127.0.0.1';
 const port = 8080;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
+// for file reading
+const fs = require('fs');
+
+// select random item from array
+let randomItem = function(array) {
+    return array[Math.floor(Math.random() * array.length)];
+};
+
+// home route
+app.get('/', (req, res) => {
+    // pick random phrase
+    let rawData = fs.readFileSync('phrases.json');
+    let phrases = JSON.parse(rawData);
+    let phrase = randomItem(phrases);
+
+    // send phrase
+    res.send(phrase);
 });
 
-server.listen(port, hostname, () => {
+app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
