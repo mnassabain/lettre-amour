@@ -21,11 +21,13 @@ let randomItem = function(array) {
     return array[Math.floor(Math.random() * array.length)];
 };
 
+// read file
+let rawData = fs.readFileSync('phrases.json');
+let phrases = JSON.parse(rawData);
+
 // home route
 app.get('/', (req, res) => {
     // pick random phrase
-    let rawData = fs.readFileSync('phrases.json');
-    let phrases = JSON.parse(rawData);
     let phrase = randomItem(phrases);
 
     // render page with phrase
