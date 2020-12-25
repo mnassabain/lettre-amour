@@ -4,7 +4,7 @@ const app = express();
 // app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/public'));
 
-const hostname = '127.0.0.1';
+const hostname = '0.0.0.0';
 const port = process.env.PORT || 8080;
 
 // for file reading
