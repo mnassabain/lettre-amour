@@ -1,11 +1,20 @@
 const express = require('express');
 const app = express();
 
-const hostname = '127.0.0.1';
+// app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
+
+const hostname = '192.168.0.50';
 const port = 8080;
 
 // for file reading
 const fs = require('fs');
+
+// mustache-express
+var mustacheExpress = require('mustache-express');
+app.engine('mustache', mustacheExpress());
+app.set('view engine', 'mustache');
+app.set('views', __dirname + '/views');
 
 // select random item from array
 let randomItem = function(array) {
@@ -19,8 +28,8 @@ app.get('/', (req, res) => {
     let phrases = JSON.parse(rawData);
     let phrase = randomItem(phrases);
 
-    // send phrase
-    res.send(phrase);
+    // render page with phrase
+    res.render('letter', { message: phrase });
 });
 
 app.listen(port, hostname, () => {
