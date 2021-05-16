@@ -37,7 +37,7 @@ h1.title {
     padding-bottom: 0;
 }
 
-.share {
+#share-btn {
     position: absolute;
     bottom: 60px;
     right: 40px;

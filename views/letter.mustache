@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <img class="share" src="/share.svg" alt="share">
+    <img id="share-btn" src="/share.svg" alt="share">
+    <input type="hidden" id="share-url" value="{{ shareUrl }}">
     <div class="container">
         <h1 class="title">{{ title }}</h1>
         <div class="text">{{ message }}</div>
     </div>
+    <script src="/main.js"></script>
 </body>
 </html>
