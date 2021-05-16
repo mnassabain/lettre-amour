@@ -16,10 +16,10 @@ app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
 app.set('views', __dirname + '/views');
 
-// select random item from array
-let randomItem = function(array) {
-    return array[Math.floor(Math.random() * array.length)];
-};
+// select random index from array
+let randomIndex = function(array) {
+  return Math.floor(Math.random() * array.length);
+} 
 
 // capitalize first letter of word
 let capitalize = (s) => {
@@ -33,17 +33,28 @@ let phrases = JSON.parse(rawData);
 
 // base route
 app.get('/:name?', (req, res) => {
-    // pick random phrase
-    let phrase = randomItem(phrases);
-    let name = req.params.name;
-    if (!name) {
-      name = 'Mon amour,';
-    } else {
-      name = capitalize(name) + ','
-    }
+  const baseUrl = req.protocol + '://' + req.get('host');
 
-    // render page with phrase
-    res.render('letter', { title: name, message: phrase });
+  // pick random phrase
+  const messageId = randomIndex(phrases);
+  const message = phrases[messageId];
+
+  let name = req.params.name;
+  if (!name) {
+    name = 'Mon amour,';
+  } else {
+    name = `${capitalize(name)},`;
+  }
+
+  // Calculate shareUrl of page
+  const shareUrl = `${baseUrl}/share/${messageId}/${req.params.name}`;
+
+  // render page with phrase
+  res.render('letter', {
+    title: name,
+    message,
+    shareUrl,
+  });
 });
 
 app.listen(port, hostname, () => {
