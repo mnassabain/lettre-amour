@@ -6,12 +6,16 @@
     <title>Lettre d'amour</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+    <img id="share-btn" src="/share.svg" alt="share">
+    <input type="hidden" id="share-url" value="{{ shareUrl }}">
     <div class="container">
         <h1 class="title">{{ title }}</h1>
         <div class="text">{{ message }}</div>
     </div>
+    <div id="snackbar">Lien de partage copié !</div>
+    <script src="/main.js"></script>
 </body>
 </html>
