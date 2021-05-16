@@ -9,4 +9,10 @@ btn.onclick = function() {
     copyText.setSelectionRange(0, 99999); /* For mobile devices */
     document.execCommand("copy");
     copyText.type = 'hidden';
+
+    // Animate snackbar
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
