@@ -9,6 +9,7 @@ btn.onclick = function() {
     copyText.setSelectionRange(0, 99999); /* For mobile devices */
     document.execCommand("copy");
     copyText.type = 'hidden';
+    copyText.blur();
 
     // Animate snackbar
     var x = document.getElementById("snackbar");
