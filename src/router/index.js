@@ -3,7 +3,7 @@ import LetterView from '../views/LetterView.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/:name?',
     name: 'letter',
     component: LetterView,
   },
