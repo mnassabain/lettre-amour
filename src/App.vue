@@ -1,14 +1,11 @@
 <template>
-  <LetterScreen />
+  <router-view />
 </template>
 
 <script>
-import LetterScreen from './components/LetterScreen.vue';
-
 export default {
   name: 'App',
   components: {
-    LetterScreen,
   }
 }
 </script>
