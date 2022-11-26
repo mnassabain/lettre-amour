@@ -1,26 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <LetterScreen />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import LetterScreen from './components/LetterScreen.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    LetterScreen,
   }
 }
 </script>
 
 <style>
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #F6676E;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100%;
 }
 </style>
