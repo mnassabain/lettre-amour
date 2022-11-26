@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LetterScreen from '../components/LetterScreen.vue'
+import LetterView from '../views/LetterView.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: LetterScreen,
+    name: 'letter',
+    component: LetterView,
   },
 ]
 
