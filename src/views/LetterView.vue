@@ -1,5 +1,7 @@
 <template>
-  <LetterScreen />
+  <LetterScreen
+    :name="name"
+  />
 </template>
 
 <script>
@@ -9,6 +11,21 @@ export default {
   name: 'LetterView',
   components: {
     LetterScreen,
+  },
+  data() {
+    return {
+      name: 'Mon Amour',
+      message: 'Ayyy mi amoooor',
+    }
+  },
+  created() {
+    this.name = this.getNameFromRoute();
+  },
+  methods: {
+    getNameFromRoute() {
+      const routeParams = this.$route.params;
+      return routeParams.name;
+    }
   }
 }
 </script>

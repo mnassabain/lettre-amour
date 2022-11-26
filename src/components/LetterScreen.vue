@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="title">{{ title }},</h1>
+    <h1 class="title">{{ formattedName }},</h1>
     <div class="text">{{ message }}</div>
   </div>
 </template>
@@ -9,14 +9,26 @@
 export default {
   name: 'LetterScreen',
   props: {
-    title: {
+    name: {
       type: String,
-      default: 'Mon amour',
+      default: '',
     },
     message: {
       type: String,
       default: 'Eres muy guapa :)',
     },
+  },
+  computed: {
+    formattedName() {
+      return this.name === ''
+        ? 'Mon Amour'
+        : this.capitalizeFirstLetter(this.name);
+    }
+  },
+  methods: {
+    capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
   }
 }
 </script>
