@@ -39,3 +39,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+div {
+  background: url('~@/assets/bg.png') no-repeat center center fixed;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Just Another Hand', cursive;
+  position: relative;
+}
+</style>
