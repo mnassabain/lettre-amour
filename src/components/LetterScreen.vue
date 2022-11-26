@@ -15,7 +15,7 @@ export default {
     },
     message: {
       type: String,
-      default: 'Eres muy guapa :)',
+      required: true,
     },
   },
   computed: {
@@ -44,9 +44,9 @@ div {
 }
 
 h1.title {
-    color: #C23746;
-    font-size: 3.2em;
-    margin: 0;
+  color: #C23746;
+  font-size: 3.2em;
+  margin: 0;
 }
 
 .text {
