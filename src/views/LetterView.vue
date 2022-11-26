@@ -16,8 +16,8 @@ export default {
   },
   data() {
     return {
-      name: 'Mon Amour',
-      message: 'Ayyy mi amoooor',
+      name: '',
+      message: '',
     }
   },
   created() {
